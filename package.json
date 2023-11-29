@@ -1,0 +1,30 @@
+{
+  "name": "warta-museum",
+  "version": "1.0.0",
+  "description": "Project Capstone Warta Museum",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gilangg13/warta-museum.git"
+  },
+  "author": "Muhammad Zaedane",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gilangg13/warta-museum/issues"
+  },
+  "homepage": "https://github.com/Gilangg13/warta-museum#readme",
+  "dependencies": {
+    "body-parse": "^0.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "git": "^0.1.5",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "dotenv": "^16.3.1",
+    "nodemon": "^3.0.1"
+  }
+}
