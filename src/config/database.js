@@ -7,8 +7,11 @@ const connection = mysql.createConnection({
 })
 
 connection.connect((err) => {
-  if (err) throw err;
-  console.log('Connected to database');
+  if (err) {
+    console.log(err)
+  } else {
+    console.log('Database connected!')
+  }
 });
 
 module.exports = connection;
