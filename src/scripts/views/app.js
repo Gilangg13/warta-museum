@@ -1,3 +1,4 @@
+/* eslint-disable object-curly-newline */
 /* eslint-disable no-promise-executor-return */
 /* eslint-disable class-methods-use-this */
 import routes from "../routes/routes";
@@ -5,18 +6,7 @@ import UrlParser from "../routes/url-parser";
 import DrawerInitiator from "../utils/drawer-initiator";
 
 class App {
-  constructor({
-    // button,
-    // drawer,
-    content,
-    menuBtn,
-    searchBtn,
-    cancelBtn,
-    items,
-    form,
-  }) {
-    // this.button = button;
-    // this.drawer = drawer;
+  constructor({ content, menuBtn, searchBtn, cancelBtn, items, form }) {
     this._content = content;
 
     this._menuBtn = menuBtn;
@@ -25,15 +15,11 @@ class App {
     this._items = items;
     this._form = form;
 
-    // this._content = document.getElementById("content");
-
     this._initialAppShell();
   }
 
   _initialAppShell() {
     DrawerInitiator.init({
-      // button: this._button,
-      // drawer: this._drawer,
       content: this._content,
       menuBtn: this._menuBtn,
       searchBtn: this._searchBtn,

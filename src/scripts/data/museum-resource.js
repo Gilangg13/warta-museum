@@ -17,8 +17,10 @@ class MuseumSource {
   static async detailMuseum(id) {
     try {
       const response = await fetch(MUSEUM_API_ENDPOINT.MUSEUM_DETAIL(id));
+      console.log(MUSEUM_API_ENDPOINT.MUSEUM_DETAIL(id));
 
       const responseJson = await response.json();
+      console.log(responseJson);
 
       return responseJson.data;
     } catch (error) {

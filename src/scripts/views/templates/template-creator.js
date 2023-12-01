@@ -1,6 +1,10 @@
 /* eslint-disable import/prefer-default-export */
 
 const createMuseumDetailTemplate = (museum) => `
+<div class="museum-detail-image">                
+  <img src="${museum.poster_url}" alt="">
+</div>
+
 <h2 class="museum-detail-title text-center text-white">${museum.nama}</h2>
 
   <div class="row">
@@ -136,7 +140,7 @@ const createMuseumItemTemplate = (museum) => `
             <img src="${museum.poster_url}" class="d-block w-100" alt="${museum.nama}">
             <h3 class="museum-title">${museum.nama}</h3>
             <div class="card-link-wrapper">
-              <a href="/#/museum/${museum.id}" class="card-link">Explore</a> 
+              <a href="#/museum/${museum.id}" class="card-link">Explore</a> 
             </div>
         </div>
       </div>

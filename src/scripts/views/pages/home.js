@@ -120,13 +120,15 @@ const Home = {
           ulProvinsi.appendChild(museumItem);
 
           // klik item museum
-          // museumItem.addEventListener("click", () => {
-          //   // Navigasi ke halaman detail menggunakan hash URL
-          //   window.location.hash = `#/detail/${museum.id}`;
-          // });
+          const exploreLink = museumItem.querySelector(".card-link");
+          exploreLink.addEventListener("click", (event) => {
+            event.preventDefault();
+            const museumId = museum.id;
+            window.location.hash = `#/museum/${museumId}`;
+          });
         });
 
-        // Tambahkan link "Lihat Semua"
+        // link "Lihat Semua"
         const seeAllLink = document.querySelector(
           `.see-all-link[data-provinsi="${provinsi
             .replace(/\s+/g, "-")
@@ -136,12 +138,12 @@ const Home = {
           .replace(/\s+/g, "-")
           .toLowerCase()}`;
 
-        // Tambahkan event listener untuk tombol "Previous"
+        // event listener untuk tombol "Previous"
         carouselPrev.addEventListener("click", () =>
           this.carouselPrevClickHandler(ulProvinsi)
         );
 
-        // Tambahkan event listener untuk tombol "Next"
+        // event listener untuk tombol "Next"
         carouselNext.addEventListener("click", () =>
           this.carouselNextClickHandler(ulProvinsi, slicedMuseums.length)
         );
@@ -152,12 +154,12 @@ const Home = {
   },
 
   carouselPrevClickHandler(ulProvinsi) {
-    ulProvinsi.scrollLeft -= 300; // Sesuaikan jumlah scroll yang diinginkan
+    ulProvinsi.scrollLeft -= 300; // jumlah scroll
   },
 
   carouselNextClickHandler(ulProvinsi, museumCount) {
-    const itemWidth = 300; // Sesuaikan lebar item museum
-    ulProvinsi.scrollLeft += itemWidth; // Sesuaikan jumlah scroll yang diinginkan
+    const itemWidth = 300; // lebar item museum
+    ulProvinsi.scrollLeft += itemWidth; // jumlah scroll
     if (ulProvinsi.scrollLeft >= itemWidth * museumCount) {
       ulProvinsi.scrollLeft = 0; // Reset ke awal setelah mencapai akhir daftar
     }

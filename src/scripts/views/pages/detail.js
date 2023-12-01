@@ -19,9 +19,6 @@ const DetailMuseum = {
                 
             </div>
 
-            <div class="museum-detail-image">
-                <img src="../../public/images/Rectangle 21.png" alt="">
-            </div>
 
             <section id="museum-detail" class="museum-detail-container">
 
@@ -41,19 +38,33 @@ const DetailMuseum = {
 
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
-    const museum = await MuseumSource.detailMuseum(url.id);
+    const museumId = url.id;
 
-    const museumContainer = document.querySelector(".museum-detail");
-    museumContainer.innerHTML = createMuseumDetailTemplate(museum);
+    console.log("Museum ID from URL:", museumId);
 
-    const museumGallery = document.querySelector(".museum-gallery");
-    museumGallery.innerHTML = createMuseumGalleryTemplate(museum);
+    try {
+      if (museumId) {
+        const museum = await MuseumSource.detailMuseum(museumId);
 
-    const museumLocation = document.querySelector(".museum-location");
-    museumLocation.innerHTML = createMuseumLocationTemplate(museum);
+        console.log("Museum data:", museum);
 
-    const museumSocial = document.querySelector(".museum-social");
-    museumSocial.innerHTML = createMuseumSocialTemplate(museum);
+        const museumContainer = document.querySelector(".museum-detail");
+        museumContainer.innerHTML = createMuseumDetailTemplate(museum);
+
+        const museumGallery = document.querySelector(".museum-gallery");
+        museumGallery.innerHTML = createMuseumGalleryTemplate(museum);
+
+        const museumLocation = document.querySelector(".museum-location");
+        museumLocation.innerHTML = createMuseumLocationTemplate(museum);
+
+        const museumSocial = document.querySelector(".museum-social");
+        museumSocial.innerHTML = createMuseumSocialTemplate(museum);
+      } else {
+        console.error("Museum ID is not available in the URL");
+      }
+    } catch (error) {
+      console.error(`Error fetching and rendering museum detail: ${error}`);
+    }
   },
 };
 

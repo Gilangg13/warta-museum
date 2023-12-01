@@ -6,8 +6,8 @@ import DetailMuseum from "../views/pages/detail";
 const routes = {
   "/": Home,
   "/home": Home,
+  "/museum/:id": DetailMuseum,
   // "/favorite": Favorite,
-  "/:id": DetailMuseum,
   // "/about": About,
 };
 

@@ -207,9 +207,6 @@ main {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 15%);
   scroll-snap-align: start;
   transition: all 0.2s;
-
-  /* max-width: 21.875rem; */
-  /* height: 17rem; */
 }
 
 .museum-item:hover {
@@ -596,71 +593,6 @@ main {
 }
 
 /* ABOUT US */
-/* .user-profile {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 10px;
-  padding: 0 20px;
-}
-
-.card-profile {
-  width: 225px;
-  border: none;
-  border-radius: 15px;
-  background-color: #1e232b !important;
-  height: 350px;
-  box-shadow: 1px 1px #888888;
-}
-
-.upper {
-  height: 120px;
-  top: 40px;
-  background-color: #fece1f;
-  border-radius: 15px 15px 0 0;
-}
-
-.profile img {
-  height: auto;
-  width: 160px;
-  border: 2px solid #1e232b;
-  border-radius: 50%;
-}
-
-.profile {
-  display: flex;
-  justify-content: center;
-}
-
-.coba {
-  margin-top: 100px;
-}
-
-.coba h4 {
-  font-size: 22px;
-  color: #fff;
-}
-
-.coba span {
-  font-size: 16px;
-}
-
-.stats i {
-  font-size: 22px;
-  padding: 0 15px;
-  color: white;
-}
-
-.stats i:hover {
-  color: #fece1f;
-}
-
-@media (max-width: 768px) {
-  .user-profile {
-    grid-template-columns: repeat(4, 1fr);
-  }
-} */
-
-/* ABOUT US */
 
 .user-profile {
   display: grid;
@@ -699,12 +631,12 @@ main {
 }
 
 .coba {
-  margin-top: 100px; /* Mengurangi margin top agar lebih kompak */
-  text-align: center; /* Tengahkan teks pada layar kecil */
+  margin-top: 100px;
+  text-align: center;
 }
 
 .coba h4 {
-  font-size: 18px; /* Mengurangi ukuran font agar lebih sesuai di layar kecil */
+  font-size: 18px;
   color: #fff;
 }
 
@@ -715,7 +647,7 @@ main {
 
 .stats i {
   font-size: 18px;
-  padding: 0 10px; /* Mengurangi padding agar ikon lebih kompak */
+  padding: 0 10px;
   color: white;
 }
 
@@ -797,42 +729,6 @@ footer .menu {
   margin: 0 !important;
   border-top: 2px solid #535353;
 }
-
-/* footer {
-  padding: 32px;
-}
-
-footer p {
-  font-size: 18px;
-  color: white;
-}
-
-footer a {
-  text-decoration: none;
-}
-
-footer .right {
-  text-align: center;
-}
-
-footer .right a {
-  padding: 0 16px;
-  color: var(--white);
-  border-right: 1px solid var(--gold);
-}
-
-footer .left a {
-  color: var(--gold);
-}
-footer .left a i {
-  font-size: 28px;
-  padding: 8px 50px 8px 40px;
-  color: var(--white);
-}
-
-footer a i:hover {
-  color: var(--gold);
-} */
 
 @media (min-width: 500px) {
   .museum-list {
