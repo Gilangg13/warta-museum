@@ -1,6 +1,8 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
+const WebpackPwaManifest = require("webpack-pwa-manifest");
 
 module.exports = {
   entry: {
@@ -15,14 +17,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: [
-          {
-            loader: "style-loader",
-          },
-          {
-            loader: "css-loader",
-          },
-        ],
+        use: ["style-loader", "css-loader"],
       },
     ],
   },
@@ -36,6 +31,35 @@ module.exports = {
         {
           from: path.resolve(__dirname, "src/public/"),
           to: path.resolve(__dirname, "dist/"),
+        },
+      ],
+    }),
+
+    new WorkboxWebpackPlugin.GenerateSW({
+      swDest: "./sw.bundle.js",
+      runtimeCaching: [
+        {
+          urlPattern: ({ url }) => url.href.startsWith("http://localhost:5001"),
+          handler: "StaleWhileRevalidate",
+          options: {
+            cacheName: "museum-api",
+          },
+        },
+      ],
+    }),
+    new WebpackPwaManifest({
+      name: "Warta Museum",
+      short_name: "Warta Museum",
+      description: "Portal Informasi Seputar Keajaiban Dunia Seni dan Sejarah",
+      start_url: "/",
+      display: "standalone",
+      background_color: "#1e232b",
+      theme_color: "#fece1f",
+      icons: [
+        {
+          src: path.resolve("src/public/icons/icon192x192.png"),
+          sizes: [192, 512],
+          purpose: "any maskable",
         },
       ],
     }),

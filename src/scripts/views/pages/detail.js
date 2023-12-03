@@ -3,9 +3,9 @@ import MuseumSource from "../../data/museum-resource";
 
 import {
   createMuseumDetailTemplate,
-  createMuseumGalleryTemplate,
-  createMuseumLocationTemplate,
-  createMuseumSocialTemplate,
+  createMuseumDetailImage,
+  // createMuseumLocationTemplate,
+  // createMuseumSocialTemplate,
 } from "../templates/template-creator";
 
 // import LikeButtonPresenter from "../../utils/like-button-presenter";
@@ -19,18 +19,11 @@ const DetailMuseum = {
                 
             </div>
 
+            <div class="museum-detail-image">
+            
+            </div>
 
             <section id="museum-detail" class="museum-detail-container">
-
-                <div class="museum-detail"></div>
-
-                <div class="museum-gallery"></div>
-
-                <div class="museum-location"></div>
-
-                <div class="museum-social"></div>
-
-                
             </section>
         </div>
         `;
@@ -38,6 +31,7 @@ const DetailMuseum = {
 
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
+    console.log("Parsed URL:", url);
     const museumId = url.id;
 
     console.log("Museum ID from URL:", museumId);
@@ -48,17 +42,20 @@ const DetailMuseum = {
 
         console.log("Museum data:", museum);
 
-        const museumContainer = document.querySelector(".museum-detail");
+        const museumImage = document.querySelector(".museum-detail-image");
+        museumImage.innerHTML = createMuseumDetailImage(museum);
+
+        const museumContainer = document.querySelector("#museum-detail");
         museumContainer.innerHTML = createMuseumDetailTemplate(museum);
 
-        const museumGallery = document.querySelector(".museum-gallery");
-        museumGallery.innerHTML = createMuseumGalleryTemplate(museum);
+        // const museumGallery = document.querySelector(".museum-gallery");
+        // museumGallery.innerHTML = createMuseumGalleryTemplate(museum);
 
-        const museumLocation = document.querySelector(".museum-location");
-        museumLocation.innerHTML = createMuseumLocationTemplate(museum);
+        // const museumLocation = document.querySelector(".museum-location");
+        // museumLocation.innerHTML = createMuseumLocationTemplate(museum);
 
-        const museumSocial = document.querySelector(".museum-social");
-        museumSocial.innerHTML = createMuseumSocialTemplate(museum);
+        // const museumSocial = document.querySelector(".museum-social");
+        // museumSocial.innerHTML = createMuseumSocialTemplate(museum);
       } else {
         console.error("Museum ID is not available in the URL");
       }

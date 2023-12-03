@@ -22,7 +22,8 @@ class MuseumSource {
       const responseJson = await response.json();
       console.log(responseJson);
 
-      return responseJson.data;
+      return responseJson;
+      // return responseJson.data;
     } catch (error) {
       console.error(`Error fetching museum list: ${error}`);
       throw error;

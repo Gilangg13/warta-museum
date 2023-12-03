@@ -281,7 +281,8 @@ main {
   /* border-radius: 8px; */
 }
 
-.museum-detail-container {
+.museum-detail-container,
+.museum-about-container {
   padding: 32px;
 }
 
