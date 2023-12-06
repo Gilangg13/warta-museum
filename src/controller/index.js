@@ -174,5 +174,33 @@ module.exports = {
             }
           }
         });
+    },
+
+    getMuseumByRating: (req, res) => {
+        const rating = req.params.rating;
+        const query = `SELECT * FROM museum WHERE rating = ${rating}`;
+        db.query(query, (err, results) => {
+            if (err) {
+                console.log(err);
+                return res.status(500).json({
+                    message: 'Gagal mendapatkan data museum berdasarkan rating',
+                    error: err.message
+                });
+            } else {
+                if(results.length === 0) {
+                    return res.status(404).json({
+                        success: false,
+                        message: 'Data museum tidak ditemukan berdasarkan rating yang diminta',
+                        error: 'Data tidak ditemukan'
+                    });
+                } else {
+                    res.status(200).json({
+                        success: true,
+                        message: 'Berhasil mendapatkan data museum berdasarkan rating',
+                        data: results
+                    });
+                }
+            }
+        });
     }
 }
