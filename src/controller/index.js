@@ -20,15 +20,62 @@ module.exports = {
             }
         });
     },
+    
+    getMuseumById: (req, res) => {
+        const id = req.params.id;
+        const query = `SELECT
+        museum.id_museum,
+        museum.nama,
+        museum.kategori,
+        museum.poster_url,
+        museum.kota_kabupaten,
+        museum.provinsi,
+        museum.hari_buka,
+        museum.jam_buka,
+        museum.rating,
+        museum.htm,
+        museum.ringkasan,
+        museum.lokasi_url,
+        GROUP_CONCAT(gallery_museum.gambar_url) AS gallery
+      FROM
+        museum
+      INNER JOIN gallery_museum ON museum.id_museum = gallery_museum.id_museum
+        WHERE
+            museum.id_museum = ${id}
+      GROUP BY
+        museum.id_museum`;
+    
+        db.query(query, (err, results) => {
+            if (err) {
+                console.log(err);
+                return res.status(500).json({
+                    success: false,
+                    message: 'Gagal mendapatkan data museum berdasarkan id',
+                    error: err.message
+                });
+            } else {
+                res.status(200).json({
+                    success: true,
+                    message: 'Berhasil mendapatkan data museum berdasarkan id',
+                    data: results
+                });
+            }
+        });
+    }, 
 
     getMuseumBySearch: (req, res) => {
         const q = req.query.q;
-        const queryNama = `SELECT * FROM museum WHERE nama LIKE '%${q}%'`;
-        const queryKota = `SELECT * FROM museum WHERE kota_kabupaten LIKE '%${q}%'`;
-        const queryProvinsi = `SELECT * FROM museum WHERE provinsi LIKE '%${q}%'`;
-        const queryKategori = `SELECT * FROM museum WHERE kategori LIKE '%${q}%'`;
-        const query = `${queryNama} UNION ${queryKota} UNION ${queryProvinsi} UNION ${queryKategori}`;
-        db.query(query, (err, results) => {
+        if (!q) {
+            return res.status(400).json({
+                success: false,
+                message: 'Pencarian tidak valid. Silakan masukkan kata kunci pencarian.',
+                error: 'Pencarian tidak valid'
+            });
+        }
+
+        const query = `SELECT * FROM museum WHERE nama LIKE ? OR kota_kabupaten LIKE ? OR provinsi LIKE ? OR kategori LIKE ?`;
+        const searchTerm = `%${q}%`;
+        db.query(query, [searchTerm, searchTerm, searchTerm, searchTerm], (err, results) => {
             if (err) {
                 console.log(err);
                 return res.status(500).json({
@@ -36,14 +83,7 @@ module.exports = {
                     error: err.message
                 });
             } else {
-                if(!q) {
-                    return res.status(400).json({
-                        success: false,
-                        message: 'Pencarian tidak valid. Silakan masukkan kata kunci pencarian.',
-                        error: 'Pencarian tidak valid'
-                    });
-                }
-                if(results.length === 0) {
+                if (results.length === 0) {
                     return res.status(404).json({
                         success: false,
                         message: 'Data museum tidak ditemukan berdasarkan pencarian yang diminta',
@@ -59,48 +99,6 @@ module.exports = {
             }
         });
     },
-    
-
-    getMuseumById: (req, res) => {
-        const id = req.params.id;
-        const query = `SELECT
-        museum.id,
-        museum.nama,
-        museum.kategori,
-        museum.poster_url,
-        museum.kota_kabupaten,
-        museum.provinsi,
-        museum.hari_buka,
-        museum.jam_buka,
-        museum.rating,
-        museum.htm,
-        museum.ringkasan,
-        museum.lokasi_url,
-        GROUP_CONCAT(gallery_museum.gambar_url) AS gallery
-      FROM
-        museum
-      INNER JOIN gallery_museum ON museum.id = gallery_museum.id_museum
-        WHERE
-            museum.id = ${id}
-      GROUP BY
-        museum.id`;
-    
-        db.query(query, (err, results) => {
-            if (err) {
-                console.log(err);
-                return res.status(500).json({
-                    message: 'Gagal mendapatkan data museum berdasarkan id',
-                    error: err.message
-                });
-            } else {
-                res.status(200).json({
-                    success: true,
-                    message: 'Berhasil mendapatkan data museum berdasarkan id',
-                    data: results
-                });
-            }
-        });
-    }, 
 
     getMuseumByProvinsi: (req, res) => {
         const allowedProvinces = ['banten', 'dki jakarta', 'jawa barat', 'jawa tengah', 'jawa timur', 'yogyakarta'];
@@ -220,4 +218,5 @@ module.exports = {
             }
         });
     }
+
 }
