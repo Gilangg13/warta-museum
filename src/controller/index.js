@@ -22,27 +22,44 @@ module.exports = {
     },
 
     getMuseumBySearch: (req, res) => {
-        const keyword = req.query.keyword;
-        const query = 'SELECT * FROM museum WHERE nama LIKE ?';
-        const searchKeyword = `%${keyword}%`;
-    
-        db.query(query, [searchKeyword], (err, results) => {
+        const q = req.query.q;
+        const queryNama = `SELECT * FROM museum WHERE nama LIKE '%${q}%'`;
+        const queryKota = `SELECT * FROM museum WHERE kota_kabupaten LIKE '%${q}%'`;
+        const queryProvinsi = `SELECT * FROM museum WHERE provinsi LIKE '%${q}%'`;
+        const queryKategori = `SELECT * FROM museum WHERE kategori LIKE '%${q}%'`;
+        const query = `${queryNama} UNION ${queryKota} UNION ${queryProvinsi} UNION ${queryKategori}`;
+        db.query(query, (err, results) => {
             if (err) {
-                console.error(err);
+                console.log(err);
                 return res.status(500).json({
-                    success: false,
                     message: 'Gagal mendapatkan data museum berdasarkan pencarian',
                     error: err.message
                 });
             } else {
-                res.status(200).json({
-                    success: true,
-                    message: 'Berhasil mendapatkan data museum berdasarkan pencarian',
-                    data: results
-                });
+                if(!q) {
+                    return res.status(400).json({
+                        success: false,
+                        message: 'Pencarian tidak valid. Silakan masukkan kata kunci pencarian.',
+                        error: 'Pencarian tidak valid'
+                    });
+                }
+                if(results.length === 0) {
+                    return res.status(404).json({
+                        success: false,
+                        message: 'Data museum tidak ditemukan berdasarkan pencarian yang diminta',
+                        error: 'Data tidak ditemukan'
+                    });
+                } else {
+                    res.status(200).json({
+                        success: true,
+                        message: 'Berhasil mendapatkan data museum berdasarkan pencarian',
+                        data: results
+                    });
+                }
             }
         });
-    }, 
+    },
+    
 
     getMuseumById: (req, res) => {
         const id = req.params.id;
