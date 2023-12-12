@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start-dev": "webpack-dev-server --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js"
+    "build": "webpack --config webpack.prod.js",
+    "serve": "http-server dist"
   },
   "keywords": [],
   "author": "Gilanggumelar",
@@ -32,6 +33,7 @@
   },
   "dependencies": {
     "clean-webpack-plugin": "^4.0.0",
+    "idb": "^8.0.0",
     "regenerator-runtime": "^0.14.0"
   }
 }

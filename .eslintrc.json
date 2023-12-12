@@ -18,6 +18,24 @@
         "linebreak-style": 0,
         "comma-dangle": 0,
         "implicit-arrow-linebreak": 0,
-        "indent": 0
+        "indent": 0,
+        "no-use-before-define": [
+            "error",
+            {
+                "functions": false,
+                "classes": false
+            }
+        ],
+        "arrow-body-style": [
+            "error",
+            "as-needed"
+        ],
+        "max-len": [
+            "error",
+            {
+                "code": 120
+            }
+        ],
+        "import/prefer-default-export": 0
     }
 }

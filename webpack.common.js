@@ -17,10 +17,18 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"],
+        use: [
+          {
+            loader: "style-loader",
+          },
+          {
+            loader: "css-loader",
+          },
+        ],
       },
     ],
   },
+
   plugins: [
     new HtmlWebpackPlugin({
       filename: "index.html",
@@ -31,6 +39,9 @@ module.exports = {
         {
           from: path.resolve(__dirname, "src/public/"),
           to: path.resolve(__dirname, "dist/"),
+          globOptions: {
+            ignore: ["**/images/**"],
+          },
         },
       ],
     }),
