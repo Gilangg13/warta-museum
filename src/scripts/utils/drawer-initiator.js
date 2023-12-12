@@ -1,6 +1,6 @@
 /* eslint-disable object-curly-newline */
 const DrawerInitiator = {
-  init({ menuBtn, searchBtn, cancelBtn, items, form }) {
+  init({ menuBtn, searchBtn, cancelBtn, items, form, searchHandler }) {
     menuBtn.addEventListener("click", () => {
       this._toggleMenuSearch(items, menuBtn, searchBtn, cancelBtn);
     });
@@ -11,6 +11,12 @@ const DrawerInitiator = {
 
     cancelBtn.addEventListener("click", () => {
       this._closeSearch(items, menuBtn, searchBtn, cancelBtn, form);
+    });
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const query = form.querySelector(".search-data").value;
+      searchHandler(query);
     });
   },
 
