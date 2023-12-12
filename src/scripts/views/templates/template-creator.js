@@ -1,177 +1,142 @@
-/* eslint-disable max-len */
-/* eslint-disable import/prefer-default-export */
-
+/* eslint-disable arrow-body-style */
 const createMuseumDetailImage = (museum) =>
   `<img src="${museum.poster_url}" alt="">`;
 
 const createMuseumDetailTemplate = (museum) => `
+    <h2 class="museum-detail-title text-center text-white py-2">${museum.nama}</h2>
+    <div class="row">
+        <div class="col-lg-4 col-md-12">
+            <img class="museum-detail-poster rounded" src="${museum.poster_url}" alt="">
+        </div>
+        <div class="col-lg-8 col-md-12 museum-detail-content">
+            <table class="table museum-detail-table border-0">
+                <tbody>
+                    <tr>
+                        <th>
+                            <i class="fa fa-solid fa-tag"></i>
+                            <span class="px-2">Kategori</span>
+                        </th>
+                        <td>${museum.kategori}</td>
+                    </tr>
 
-<h2 class="museum-detail-title text-center text-white">${museum.nama}</h2>
+                    <tr>
+                        <th>
+                            <i class="fa fa-building"></i>
+                            <span class="px-3">Lokasi</span>
+                        </th>
+                        <td>${museum.kota_kabupaten}, ${museum.provinsi}</td>
+                    </tr>
 
-  <div class="row">
-      <div class="col-lg-4 col-md-12">
-          <img class="museum-detail-poster" src="${museum.poster_url}" alt="">
-      </div>
-      <div class="col-lg-8 col-md-12 museum-detail-content">
+                    <tr>
+                        <th>
+                            <i class="fa fa-map-marker"></i>
+                            <span class="px-3">Jam Buka</span>
+                        </th>
+                        <td>${museum.hari_buka} ${museum.jam_buka}</td>
+                    </tr>
 
-          <table class="table museum-detail-table border-0">
-              <tbody>
-                  <tr>
-                      <th>
-                          <i class="fa fa-solid fa-star"></i>
-                          <span class="px-2">Kategori</span>
-                      </th>
-                      <td>${museum.kategori}</td>
-                  </tr>
-
-                  <tr>
-                      <th>
-                          <i class="fa fa-building"></i>
-                          <span class="px-3">Lokasi</span>
-                      </th>
-                      <td>${museum.kota_kabupaten}, ${museum.provinsi}</td>
-                  </tr>
-
-                  <tr>
-                      <th>
-                          <i class="fa fa-map-marker"></i>
-                          <span class="px-3">Jam Buka</span>
-                      </th>
-                      <td>${museum.hari_buka} ${museum.jam_buka}</td>
-                  </tr>
-
-                  <tr>
-                      <th>
-                          <i class="fa fa-solid fa-tag"></i>
-                          <span class="px-3">Rating</span>
-                      </th>
-                      <td>${museum.rating}</td>
-                  </tr>
-                  <tr>
-                      <th>
-                          <i class="fa fa-solid fa-tag"></i>
-                          <span class="px-3">HTM</span>
-                      </th>
-                      <td>${museum.htm}</td>
-                  </tr>
-              </tbody>
-          </table>
-          <div class="museum-detail-description">
-              <h4>Description</h4>
-              <p>${museum.ringkasan}</p>
-          </div>
-      </div>
+                    <tr>
+                        <th>
+                            <i class="fa fa-solid fa-star"></i>
+                            <span class="px-3">Rating</span>
+                        </th>
+                        <td>${museum.rating}</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <i class="fa fa-solid fa-tag"></i>
+                            <span class="px-3">HTM</span>
+                        </th>
+                        <td>${museum.htm}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="museum-detail-description">
+                <h4>Description</h4>
+                <p>${museum.ringkasan}</p>
+            </div>
+        </div>
   </div>
-
-
-<h2 class="museum-detail-title text-center text-white mt-5 mb-3 py-3">Gallery Museum</h2>
- <div class="row museum-gallery">
-   <div class="gallery">
-     <div class="gallery-item image-1">
-         <img src="${museum.poster_url}" alt="${museum.nama}">
-         <div class="overlay">Museum 1</div>
-     </div>
-     <div class="gallery-item image-2">
-         <img src="${museum.poster_url}" alt="${museum.nama}">
-         <div class="overlay">Museum 2</div>
-     </div>
-     <div class="gallery-item image-3">
-         <img src="${museum.poster_url}" alt="${museum.nama}">
-         <div class="overlay">Museum 3</div>
-     </div>
-     <div class="gallery-item image-4">
-         <img src="${museum.poster_url}" alt="${museum.nama}">
-         <div class="overlay">Museum 4</div>
-     </div>
-     <div class="gallery-item image-5">
-         <img src="${museum.poster_url}" alt="${museum.nama}">
-         <div class="overlay">Museum 5</div>
-     </div>
-   </div>
- </div>
 `;
 
-// const createMuseumGalleryTemplate = (museum) => `
-// <h2 class="museum-detail-title text-center text-white mt-5 mb-3 py-3">Gallery Museum</h2>
-// <div class="row museum-gallery">
-//   <div class="gallery">
-//     <div class="gallery-item image-1">
-//         <img src="${museum.poster_url}" alt="${museum.nama}">
-//         <div class="overlay">Museum 1</div>
-//     </div>
-//     <div class="gallery-item image-2">
-//         <img src="${museum.poster_url}" alt="${museum.nama}">
-//         <div class="overlay">Museum 2</div>
-//     </div>
-//     <div class="gallery-item image-3">
-//         <img src="${museum.poster_url}" alt="${museum.nama}">
-//         <div class="overlay">Museum 3</div>
-//     </div>
-//     <div class="gallery-item image-4">
-//         <img src="${museum.poster_url}" alt="${museum.nama}">
-//         <div class="overlay">Museum 4</div>
-//     </div>
-//     <div class="gallery-item image-5">
-//         <img src="${museum.poster_url}" alt="${museum.nama}">
-//         <div class="overlay">Museum 5</div>
-//     </div>
-//   </div>
-// </div>
-// `;
+const createMuseumGalleryItems = (museum) => {
+  if (museum && museum.gallery) {
+    const galleryUrls = museum.gallery.split(",");
 
-// const createMuseumLocationTemplate = (museum) => `
-// <h2 class="museum-detail-title text-center text-white mt-5 mb-3 py-3">Lokasi</h2>
+    // Batasi hanya 5 gambar
+    const limitedGalleryUrls = galleryUrls.slice(0, 5);
 
-// <div class="card map-card">
-//   <div class="card-body">
-//     <div class="map-container">
-//         <iframe src="${museum.lokasi_url}" frameborder="0" style="border:0" allowfullscreen></iframe>
-//     </div>
-//     <div class="map-details">
-//         <h3>Location</h3>
-//         <p>${museum.nama}<br>${museum.kota_kabupaten}, ${museum.provinsi}
-//         </p>
-//     </div>
-//   </div>
-// </div>
-// `;
+    const galleryItems = limitedGalleryUrls.map((url, index) => {
+      return `
+        <div class="gallery-item image-${index + 1}">
+            <img src="${url.trim()}" alt="Museum Image ${index + 1}">
+            <div class="overlay"></div>
+        </div>
+      `;
+    });
 
-// const createMuseumSocialTemplate = (museum) => `
-// <div class="text-center text-white mt-5 mb-3 pt-3">
-//   <h5>${museum.nama}</h5>
-// </div>
-// <div class="museum-social-media">
-//   <div class="row mx-auto">
-//     <div class="col-12 d-flex justify-content-center my-3">
-//         <a href="#" class="fs-2 px-4">
-//             <i class="fab fa-facebook-square"></i>
-//         </a>
-//         <a href="#" class="fs-2 px-4">
-//             <i class="fab fa-instagram-square"></i>
-//         </a>
-//         <a href="#" class="fs-2 px-4">
-//             <i class="fab fa-twitter-square"></i>
-//         </a>
-//     </div>
-//     <div class="col-12 d-flex justify-content-center my-3">
-//         <button class="btn btn-warning">
-//             <i class="fas fa-plus"></i><span class="px-3">Follow</span>
-//         </button>
-//     </div>
-//   </div>
-// </div>
-// `;
+    return galleryItems.join("");
+  }
+
+  return "";
+};
+
+const createMuseumLocationTemplate = (museum) => `
+<h2 class="museum-detail-title text-center text-white mt-5">Lokasi Museum</h2>
+
+<h5 class="text-center text-white mb-3">${museum.kota_kabupaten}, ${museum.provinsi}</h5>
+    <div class="map-container">
+        <iframe src="${museum.lokasi_url}" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
+
+`;
+
+const createCategoryTemplate = (museum) => `
+            <img src="${museum.poster_url}" class="d-block card-img-top" alt="${museum.nama}">
+            <div class="museum-info">
+                <h3 class="museum-title">${museum.nama}</h3>
+                <p class="museum-rating"><i class="fa fa-solid fa-star pe-2"></i>${museum.rating}</p>
+                <p class="museum-location">${museum.kota_kabupaten}, ${museum.provinsi}</p>
+            </div>
+            <div class="card-link-wrapper">
+              <a href="#/detail/${museum.id_museum}" class="card-link">Explore</a> 
+            </div>
+`;
 
 const createMuseumItemTemplate = (museum) => `
       <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="${museum.poster_url}" class="d-block w-100" alt="${museum.nama}">
-            <h3 class="museum-title">${museum.nama}</h3>
+            <img src="${museum.poster_url}" class="d-block card-img-top" alt="${museum.nama}">
+            <div class="museum-info">
+                <h3 class="museum-title">${museum.nama}</h3>
+                <p class="museum-rating"><i class="fa fa-solid fa-star pe-2"></i>${museum.rating}</p>
+                <p class="museum-location">${museum.kota_kabupaten}, ${museum.provinsi}</p>
+            </div>
             <div class="card-link-wrapper">
-              <a href="#/museum/${museum.id}" class="card-link">Explore</a> 
+              <a href="#/detail/${museum.id_museum}" class="card-link">Explore</a> 
             </div>
         </div>
       </div>
+`;
+
+const createMuseumItemFavoriteTemplate = (museum) => `
+        <li class="museum-item-category">
+             <img src="${museum.poster_url}" class="d-block card-img-top" alt="${museum.nama}">
+            <div class="museum-info">
+                <h3 class="museum-title">${museum.nama}</h3>
+                <p class="museum-rating"><i class="fa fa-solid fa-star pe-2"></i>${museum.rating}</p>
+                <p class="museum-location">${museum.kota_kabupaten}, ${museum.provinsi}</p>
+            </div>
+            <div class="card-link-wrapper">
+              <a href="#/detail/${museum.id}" class="card-link">Explore</a> 
+            </div>
+        </li>
+`;
+
+const createEmptyMuseumTemplate = () => `
+    <div class="museum-item__not__found text-center">
+        Tidak ada museum untuk ditampilkan
+    </div>
 `;
 
 const createAboutTemplate = () => `
@@ -341,12 +306,28 @@ const createAboutTemplate = () => `
             </div>
 `;
 
+const createLikeMuseumButtonTemplate = () => `
+  <button aria-label="like this museum" id="likeButton" class="like">
+    <i class="fa-regular fa-heart" aria-hidden="true"></i>
+  </button>
+`;
+
+const createUnlikeMuseumButtonTemplate = () => `
+  <button aria-label="unlike this museum" id="likeButton" class="like">
+    <i class="fa-solid fa-heart" aria-hidden="true"></i>
+  </button>
+`;
+
 export {
   createMuseumItemTemplate,
   createMuseumDetailTemplate,
   createMuseumDetailImage,
-  //   createMuseumGalleryTemplate,
-  //   createMuseumLocationTemplate,
-  //   createMuseumSocialTemplate,
+  createMuseumGalleryItems,
   createAboutTemplate,
+  createLikeMuseumButtonTemplate,
+  createUnlikeMuseumButtonTemplate,
+  createMuseumItemFavoriteTemplate,
+  createMuseumLocationTemplate,
+  createCategoryTemplate,
+  createEmptyMuseumTemplate,
 };
