@@ -4,6 +4,9 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
 const WebpackPwaManifest = require("webpack-pwa-manifest");
 
+const ImageminWebpackPlugin = require("imagemin-webpack-plugin").default;
+const ImageminMozjpeg = require("imagemin-mozjpeg");
+
 module.exports = {
   entry: {
     app: path.resolve(__dirname, "src/scripts/index.js"),
@@ -39,9 +42,9 @@ module.exports = {
         {
           from: path.resolve(__dirname, "src/public/"),
           to: path.resolve(__dirname, "dist/"),
-          globOptions: {
-            ignore: ["**/images/**"],
-          },
+          // globOptions: {
+          //   ignore: ["**/images/**"],
+          // },
         },
       ],
     }),
@@ -72,6 +75,14 @@ module.exports = {
           sizes: [192, 512],
           purpose: "any maskable",
         },
+      ],
+    }),
+    new ImageminWebpackPlugin({
+      plugins: [
+        ImageminMozjpeg({
+          quality: 50,
+          progressive: true,
+        }),
       ],
     }),
   ],
