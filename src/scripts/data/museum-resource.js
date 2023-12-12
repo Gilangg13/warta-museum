@@ -74,6 +74,19 @@ class MuseumSource {
       throw error;
     }
   }
+
+  static async searchMuseum(query) {
+    try {
+      const response = await fetch(
+        `${MUSEUM_API_ENDPOINT.MUSEUM_SEARCH(query)}`
+      );
+      const responseJson = await response.json();
+      return responseJson.data;
+    } catch (error) {
+      console.error(`Error saat mencari museum: ${error}`);
+      throw error;
+    }
+  }
 }
 
 export default MuseumSource;
