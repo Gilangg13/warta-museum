@@ -85,6 +85,15 @@ module.exports = {
           progressive: true,
         }),
       ],
+      config: [
+        {
+          test: /\.(jpe?g|png)/,
+          options: {
+            quality: 50,
+          },
+        },
+      ],
+      overrideExtension: true,
     }),
   ],
 };
