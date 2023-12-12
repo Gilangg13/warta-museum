@@ -15,7 +15,15 @@ const Home = {
         <section class="hero-banner text-light py-5">
             <div class="row align-items-center">
                 <div class="col-lg-6 order-lg-1 d-flex justify-content-center">
-                    <img src="./images/hero.png" class="img-fluid" alt="Web Development">
+                    
+                    <picture>
+                      <source media="(min-width: 600px)" srcset="./images/hero-small.png">
+
+                      <source media="(max-width: 600px)" srcset="./images/hero-large.png">
+                      
+                      <img src='./images/hero-small.png' 
+                          alt="Museum Banner">
+                    </picture>
                 </div>
                 <div class="col-lg-6">
                     <h1 class="mt-5">Eksplorasi Budaya, Museum sebagai Tempat Penemuan Tanpa Batas.</h1>
