@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable arrow-body-style */
 const createMuseumDetailImage = (museum) =>
   `<img class="lazyload" data-src="${museum.poster_url}" alt="${museum.nama}">`;
@@ -148,16 +149,11 @@ const createEmptyMuseumTemplate = () => `
 const createAboutTemplate = () => `
 <h2 class="museum-detail-title text-white mt-2 mb-3">About Us</h2>
             <div class="col-lg-8 col-md-12 col-sm-12">
-                <p class="text-left text-secondary">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam
-                    necessitatibus
-                    quibusdam corporis
-                    fugiat numquam voluptas dolor beatae ratione obcaecati. Repellendus.
-                    Impedit velit veritatis, eveniet corporis quia nesciunt ex distinctio dolorem voluptatum?
-                    Similique deleniti iste quam nemo, quo nisi neque at.
-                    Explicabo, rem! Alias dolore rem, quo ducimus dolorem delectus dolorum, animi nam eos fugiat
-                    exercitationem beatae nostrum, dicta quos recusandae.
-                    Harum nam provident laudantium at officiis sequi pariatur aspernatur repellat natus, nobis earum
-                    explicabo id suscipit assumenda, itaque tempore quia?</p>
+                <p class="text-left text-secondary">
+                    Warta Museum adalah Web Aplikasi yang berguna untuk memperkenalkan museum - museum yang ada di Pulau Jawa. 
+                    Warta Museum sendiri memiliki arti Warta (Berita) dan Museum (Lembaga yang memperkenalkan sejarah) sesuai nama 
+                    Aplikasi kami tujuan kami hanya satu yaitu memperkenalkan Museum - Museum yang ada di Pulau Jawa kepada Masyarakat 
+                    Luas supaya kita dapat terus mengingat sejarah - sejarah dan mempelajarinya supaya dapat berguna bagi kehidupan kita kedepan.</p>
             </div>
 
 
