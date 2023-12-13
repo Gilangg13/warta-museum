@@ -293,19 +293,22 @@ nav form .button-search:hover {
 }
 
 .card-link {
-  /* display: inline-block; */
-  text-decoration: none;
-  color: white;
   background: var(--gold);
   margin: 0 25px;
   padding: 8px 25px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   min-width: 44px;
   min-height: 44px;
   border-radius: 8px;
   transition: background 0.2s;
+}
+
+.card-link a {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
 }
 
 .museum-item:hover .card-link {

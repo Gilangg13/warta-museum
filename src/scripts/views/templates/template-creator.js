@@ -115,7 +115,9 @@ const createMuseumItemTemplate = (museum) => `
                 <p class="museum-location">${museum.kota_kabupaten}, ${museum.provinsi}</p>
             </div>
             <div class="card-link-wrapper">
-              <a href="#/detail/${museum.id_museum}" class="card-link">Explore</a> 
+             <h3 class="card-link">
+                    <a href="#/detail/${museum.id}" class="text-decoration-none">Explore</a> 
+                </h3> 
             </div>
         </div>
       </div>
@@ -130,7 +132,9 @@ const createMuseumItemFavoriteTemplate = (museum) => `
                 <p class="museum-location">${museum.kota_kabupaten}, ${museum.provinsi}</p>
             </div>
             <div class="card-link-wrapper">
-              <a href="#/detail/${museum.id}" class="card-link">Explore</a> 
+                <h3 class="card-link">
+                    <a href="#/detail/${museum.id}">Explore</a> 
+                </h3>
             </div>
         </li>
 `;
