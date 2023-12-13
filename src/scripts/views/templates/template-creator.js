@@ -1,12 +1,12 @@
 /* eslint-disable arrow-body-style */
 const createMuseumDetailImage = (museum) =>
-  `<img src="${museum.poster_url}" alt="">`;
+  `<img class="lazyload" data-src="${museum.poster_url}" alt="${museum.nama}">`;
 
 const createMuseumDetailTemplate = (museum) => `
     <h2 class="museum-detail-title text-center text-white py-2">${museum.nama}</h2>
     <div class="row">
         <div class="col-lg-4 col-md-12">
-            <img class="museum-detail-poster rounded" src="${museum.poster_url}" alt="">
+            <img class="lazyload museum-detail-poster rounded" data-src="${museum.poster_url}" alt="${museum.nama}">
         </div>
         <div class="col-lg-8 col-md-12 museum-detail-content">
             <table class="table museum-detail-table border-0">
@@ -69,7 +69,9 @@ const createMuseumGalleryItems = (museum) => {
     const galleryItems = limitedGalleryUrls.map((url, index) => {
       return `
         <div class="gallery-item image-${index + 1}">
-            <img src="${url.trim()}" alt="Museum Image ${index + 1}">
+            <img class="lazyload" data-src="${url.trim()}" alt="Museum Image ${
+        index + 1
+      }">
             <div class="overlay"></div>
         </div>
       `;
@@ -106,7 +108,7 @@ const createCategoryTemplate = (museum) => `
 const createMuseumItemTemplate = (museum) => `
       <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="${museum.poster_url}" class="d-block card-img-top" alt="${museum.nama}">
+            <img data-src="${museum.poster_url}" class="lazyload d-block card-img-top" alt="${museum.nama}">
             <div class="museum-info">
                 <h3 class="museum-title">${museum.nama}</h3>
                 <p class="museum-rating"><i class="fa fa-solid fa-star pe-2"></i>${museum.rating}</p>
@@ -121,7 +123,7 @@ const createMuseumItemTemplate = (museum) => `
 
 const createMuseumItemFavoriteTemplate = (museum) => `
         <li class="museum-item-category">
-             <img src="${museum.poster_url}" class="d-block card-img-top" alt="${museum.nama}">
+             <img data-src="${museum.poster_url}" class="lazyload d-block card-img-top" alt="${museum.nama}">
             <div class="museum-info">
                 <h3 class="museum-title">${museum.nama}</h3>
                 <p class="museum-rating"><i class="fa fa-solid fa-star pe-2"></i>${museum.rating}</p>

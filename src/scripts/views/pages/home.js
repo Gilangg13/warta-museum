@@ -17,13 +17,13 @@ const Home = {
                 <div class="col-lg-6 order-lg-1 d-flex justify-content-center">
                     
                     <picture>
-                      <source media="(min-width: 600px)" srcset="./images/hero-small.png" type="image/webp>
-                      <source media="(min-width: 600px)" srcset="./images/hero-small.png" type="image/png>
+                      <source class="lazyload" media="(min-width: 600px)" srcset="./images/hero-small.png" type="image/webp">
+                      <source class="lazyload" media="(min-width: 600px)" srcset="./images/hero-small.png" type="image/png">
 
-                      <source media="(max-width: 600px)" srcset="./images/hero-large.png" type="image/webp>
-                      <source media="(max-width: 600px)" srcset="./images/hero-large.png" type="image/png>
+                      <source class="lazyload" media="(max-width: 600px)" srcset="./images/hero-large.png" type="image/webp">
+                      <source class="lazyload" media="(max-width: 600px)" srcset="./images/hero-large.png" type="image/png">
                       
-                      <img src='./images/hero-small.png' 
+                      <img class="lazyload" data-src="./images/heros/hero.png" 
                           alt="Museum Banner">
                     </picture>
                 </div>

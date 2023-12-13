@@ -35,21 +35,6 @@ class FavoriteMuseumView {
     }
 
     document.querySelector(".museum-list-category").innerHTML = html;
-    // const museumContainer = document.querySelector(".museum-list-category");
-
-    // const museumItem = document.createElement("li");
-
-    // museumItem.classList.add("museum-item-category");
-    // museumItem.innerHTML = html;
-    // museumContainer.appendChild(museumItem);
-
-    // const exploreLink = museumItem.querySelector(".card-link");
-    // exploreLink.addEventListener("click", (event) => {
-    //   event.preventDefault();
-    //   const museumId = museums.id_museum;
-    //   console.log(museumId);
-    //   window.location.hash = `#/detail/${museumId}`;
-    // });
 
     document
       .querySelector(".museum-list-category")
