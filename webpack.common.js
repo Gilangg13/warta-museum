@@ -6,6 +6,7 @@ const WebpackPwaManifest = require("webpack-pwa-manifest");
 
 const ImageminWebpackPlugin = require("imagemin-webpack-plugin").default;
 const ImageminMozjpeg = require("imagemin-mozjpeg");
+const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 
 module.exports = {
   entry: {
@@ -42,10 +43,10 @@ module.exports = {
         {
           from: path.resolve(__dirname, "src/public/"),
           to: path.resolve(__dirname, "dist/"),
-          // globOptions: {
-          //   // CopyWebpackPlugin mengabaikan berkas yang berada di dalam folder images
-          //   ignore: ["**/images/**"],
-          // },
+          globOptions: {
+            // CopyWebpackPlugin mengabaikan berkas yang berada di dalam folder images
+            ignore: ["**/images/**"],
+          },
         },
       ],
     }),
@@ -94,6 +95,10 @@ module.exports = {
         },
       ],
       overrideExtension: true,
+    }),
+    new BundleAnalyzerPlugin({
+      analyzerMode: "static",
+      openAnalyzer: false,
     }),
   ],
 };

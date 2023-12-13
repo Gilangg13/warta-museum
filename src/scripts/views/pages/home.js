@@ -20,10 +20,10 @@ const Home = {
                       <source class="lazyload" media="(min-width: 600px)" srcset="./images/hero-small.png" type="image/webp">
                       <source class="lazyload" media="(min-width: 600px)" srcset="./images/hero-small.png" type="image/png">
 
-                      <source class="lazyload" media="(max-width: 600px)" srcset="./images/hero-large.png" type="image/webp">
-                      <source class="lazyload" media="(max-width: 600px)" srcset="./images/hero-large.png" type="image/png">
+                      <source class="lazyload" media="(max-width: 600px)" srcset="./images/hero-medium.png" type="image/webp">
+                      <source class="lazyload" media="(max-width: 600px)" srcset="./images/hero-medium.png" type="image/png">
                       
-                      <img class="lazyload" data-src="./images/heros/hero.png" 
+                      <img class="lazyload" data-src="./images/hero-small.png" 
                           alt="Museum Banner">
                     </picture>
                 </div>
