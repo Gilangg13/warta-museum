@@ -167,26 +167,26 @@ const createAboutTemplate = () => `
                 <div class="card card-profile">
                     <div class="upper">
                         <div class="profile text-center mt-4 pt-2">
-                            <img src="./images/user.jpg" class="rounded-circle">
+                            <img src="./user-profile/gilang-gumelar.jpg" class="rounded-circle">
                         </div>
                     </div>
                     <div class="text-center coba">
-                        <h4 class="mb-">Lorem Ipsum</h4>
+                        <h4 class="mb-">Gilang Gumelar</h4>
                         <span class="text-white d-block mb-4">Front End Developer</span>
 
                         <div class="d-flex justify-content-between align-items-center my-3 px-4">
                             <div class="stats">
-                                <a href="">
+                                <a href="https://github.com/Gilangg13/">
                                     <i class="fa-brands fa-github"></i>
                                 </a>
                             </div>
                             <div class="stats">
-                                <a href="">
+                                <a href="https://www.instagram.com/ggilang13/">
                                     <i class="fa-brands fa-instagram"></i>
                                 </a>
                             </div>
                             <div class="stats">
-                                <a href="">
+                                <a href="https://www.linkedin.com/in/gilang-gumelar-96b35621a/">
                                     <i class="fa-brands fa-linkedin"></i>
                                 </a>
                             </div>
@@ -196,26 +196,26 @@ const createAboutTemplate = () => `
                 <div class="card card-profile">
                     <div class="upper">
                         <div class="profile text-center mt-4 pt-2">
-                            <img src="./images/user.jpg" class="rounded-circle">
+                            <img src="./user-profile/muhammad-zaedane.jpg" class="rounded-circle">
                         </div>
                     </div>
                     <div class="text-center coba">
-                        <h4 class="mb-2">Lorem Ipsum</h4>
+                        <h4 class="mb-2">Muhammad Zaedane</h4>
                         <span class="text-white d-block mb-4">Front End Developer</span>
 
                         <div class="d-flex justify-content-between align-items-center my-3 px-4">
                             <div class="stats">
-                                <a href="">
+                                <a href="https://github.com/kerandamonyet">
                                     <i class="fa-brands fa-github"></i>
                                 </a>
                             </div>
                             <div class="stats">
-                                <a href="">
+                                <a href="https://www.instagram.com/kerandamonyet/">
                                     <i class="fa-brands fa-instagram"></i>
                                 </a>
                             </div>
                             <div class="stats">
-                                <a href="">
+                                <a href="https://www.linkedin.com/in/muhammad-zaedane-689551278/">
                                     <i class="fa-brands fa-linkedin"></i>
                                 </a>
                             </div>
@@ -225,16 +225,16 @@ const createAboutTemplate = () => `
                 <div class="card card-profile">
                     <div class="upper">
                         <div class="profile text-center mt-4 pt-2">
-                            <img src="./images/user.jpg" class="rounded-circle">
+                            <img src="./user-profile/raihan-daffa-aziz.jpg" class="rounded-circle">
                         </div>
                     </div>
                     <div class="text-center coba">
-                        <h4 class="mb-2">Lorem Ipsum</h4>
+                        <h4 class="mb-2">Raihan Daffa Aziz</h4>
                         <span class="text-white d-block mb-4">Front End Developer</span>
 
                         <div class="d-flex justify-content-between align-items-center my-3 px-4">
                             <div class="stats">
-                                <a href="">
+                                <a href="https://github.com/raihanndaffaa">
                                     <i class="fa-brands fa-github"></i>
                                 </a>
                             </div>
@@ -244,7 +244,7 @@ const createAboutTemplate = () => `
                                 </a>
                             </div>
                             <div class="stats">
-                                <a href="">
+                                <a href="https://www.linkedin.com/in/raihanndaffaa">
                                     <i class="fa-brands fa-linkedin"></i>
                                 </a>
                             </div>
@@ -254,26 +254,26 @@ const createAboutTemplate = () => `
                 <div class="card card-profile">
                     <div class="upper">
                         <div class="profile text-center mt-4 pt-2">
-                            <img src="./images/user.jpg" class="rounded-circle">
+                            <img src="./user-profile/taqiy-rizqi-jagad-samudra.jpg" class="rounded-circle">
                         </div>
                     </div>
                     <div class="text-center coba">
-                        <h4 class="mb-2">Lorem Ipsum</h4>
+                        <h4 class="mb-2">Taqiy Rizky Jagad Samudra</h4>
                         <span class="text-white d-block mb-4">Front End Developer</span>
 
                         <div class="d-flex justify-content-between align-items-center my-3 px-4">
                             <div class="stats">
-                                <a href="">
+                                <a href="https://github.com/Taq1yRizqi">
                                     <i class="fa-brands fa-github"></i>
                                 </a>
                             </div>
                             <div class="stats">
-                                <a href="">
+                                <a href="https://www.instagram.com/sinibejo/">
                                     <i class="fa-brands fa-instagram"></i>
                                 </a>
                             </div>
                             <div class="stats">
-                                <a href="">
+                                <a href="https://www.linkedin.com/in/TaqiyRizqi/">
                                     <i class="fa-brands fa-linkedin"></i>
                                 </a>
                             </div>
@@ -283,11 +283,11 @@ const createAboutTemplate = () => `
                 <div class="card card-profile">
                     <div class="upper">
                         <div class="profile text-center mt-4 pt-2">
-                            <img src="./images/user.jpg" class="rounded-circle">
+                            <img src="./user-profile/user.jpg" class="rounded-circle">
                         </div>
                     </div>
                     <div class="text-center coba">
-                        <h4 class="mb-2">Lorem Ipsum</h4>
+                        <h4 class="mb-2">Firman Sobari</h4>
                         <span class="text-white d-block mb-4">Front End Developer</span>
 
                         <div class="d-flex justify-content-between align-items-center my-3 px-4">
