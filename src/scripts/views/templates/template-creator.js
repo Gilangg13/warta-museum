@@ -279,7 +279,7 @@ const createAboutTemplate = () => `
                 <div class="card card-profile">
                     <div class="upper">
                         <div class="profile text-center mt-4 pt-2">
-                            <img src="./user-profile/user.jpg" class="rounded-circle">
+                            <img src="./user-profile/firman-sobari.jpg" class="rounded-circle">
                         </div>
                     </div>
                     <div class="text-center coba">
@@ -288,17 +288,17 @@ const createAboutTemplate = () => `
 
                         <div class="d-flex justify-content-between align-items-center my-3 px-4">
                             <div class="stats">
-                                <a href="">
+                                <a href="https://github.com/FirmanSobari">
                                     <i class="fa-brands fa-github"></i>
                                 </a>
                             </div>
                             <div class="stats">
-                                <a href="">
+                                <a href="https://www.instagram.com/frmnsbry_/">
                                     <i class="fa-brands fa-instagram"></i>
                                 </a>
                             </div>
                             <div class="stats">
-                                <a href="">
+                                <a href="http://www.linkedin.com/in/firman-sobari-404415281">
                                     <i class="fa-brands fa-linkedin"></i>
                                 </a>
                             </div>
