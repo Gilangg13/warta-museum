@@ -25,7 +25,6 @@ module.exports = {
     getMuseumById: (req, res) => {
         const id = req.params.id;
 
-        // Query untuk mengambil data museum berdasarkan id
         const museumQuery = `SELECT
             museum.id_museum,
             museum.nama,
@@ -44,11 +43,11 @@ module.exports = {
             museum
             INNER JOIN gallery_museum ON museum.id_museum = gallery_museum.id_museum
             WHERE
-            museum.id_museum = ${id}
+            museum.id_museum = ? 
             GROUP BY
             museum.id_museum`;
 
-        db.query(museumQuery, (err, museumResults) => {
+        db.query(museumQuery, [id], (err, museumResults) => {
             if (err) {
                 console.log(err);
                 return res.status(500).json({
@@ -57,12 +56,11 @@ module.exports = {
                     error: err.message
                 });
             } else {
-                const museumData = museumResults[0]; // Ambil data museum dari hasil query
+                const museumData = museumResults[0];
 
-                // Query untuk mengambil review berdasarkan id museum
-                const reviewQuery = `SELECT * FROM reviews_museum WHERE id_museum = ${id}`;
+                const reviewQuery = `SELECT * FROM reviews_museum WHERE id_museum = ?`;
 
-                db.query(reviewQuery, (err, reviewResults) => {
+                db.query(reviewQuery, [id], (err, reviewResults) => {
                     if (err) {
                         console.log(err);
                         return res.status(500).json({
@@ -71,7 +69,7 @@ module.exports = {
                             error: err.message
                         });
                     } else {
-                        museumData.reviews = reviewResults; // Tambahkan review ke data museum
+                        museumData.reviews = reviewResults;
                         res.status(200).json({
                             success: true,
                             message: 'Berhasil mendapatkan data museum berdasarkan id',
@@ -103,19 +101,11 @@ module.exports = {
                     error: err.message
                 });
             } else {
-                if (results.length === 0) {
-                    return res.status(404).json({
-                        success: false,
-                        message: 'Data museum tidak ditemukan berdasarkan pencarian yang diminta',
-                        error: 'Data tidak ditemukan'
-                    });
-                } else {
-                    res.status(200).json({
-                        success: true,
-                        message: 'Berhasil mendapatkan data museum berdasarkan pencarian',
-                        data: results
-                    });
-                }
+                res.status(200).json({
+                    success: true,
+                    message: 'Berhasil mendapatkan data museum berdasarkan pencarian',
+                    data: results
+                });            
             }
         });
     },
