@@ -217,6 +217,28 @@ module.exports = {
                 }
             }
         });
+    },
+
+    getProvinsi: (req, res) => {
+        const query = `SELECT DISTINCT provinsi FROM museum`;
+        db.query( query, (err, results) => {
+            if(err) {
+                console.log(err);
+                return res.status(500).json({
+                    message: 'Gagal mendapatkan data provinsi',
+                    error: err.message
+                });
+            } else {
+                const provinsiList = results.map((result) => result.provinsi);
+                const responseObj =  { provinsi: provinsiList };
+
+                res.status(200).json({
+                    success: true,
+                    message: 'Berhasil mendapatkan data provinsi',
+                    data: responseObj
+                });
+            }
+        });
     }
 
 }
