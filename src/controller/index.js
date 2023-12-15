@@ -1,4 +1,5 @@
 const db = require('../config/database');
+const { v4: uuidv4 } = require('uuid');
 
 module.exports = {
     getAllMuseums: (req, res) => {
@@ -23,29 +24,31 @@ module.exports = {
     
     getMuseumById: (req, res) => {
         const id = req.params.id;
-        const query = `SELECT
-        museum.id_museum,
-        museum.nama,
-        museum.kategori,
-        museum.poster_url,
-        museum.kota_kabupaten,
-        museum.provinsi,
-        museum.hari_buka,
-        museum.jam_buka,
-        museum.rating,
-        museum.htm,
-        museum.ringkasan,
-        museum.lokasi_url,
-        GROUP_CONCAT(gallery_museum.gambar_url) AS gallery
-      FROM
-        museum
-      INNER JOIN gallery_museum ON museum.id_museum = gallery_museum.id_museum
-        WHERE
+
+        // Query untuk mengambil data museum berdasarkan id
+        const museumQuery = `SELECT
+            museum.id_museum,
+            museum.nama,
+            museum.kategori,
+            museum.poster_url,
+            museum.kota_kabupaten,
+            museum.provinsi,
+            museum.hari_buka,
+            museum.jam_buka,
+            museum.rating,
+            museum.htm,
+            museum.ringkasan,
+            museum.lokasi_url,
+            GROUP_CONCAT(gallery_museum.gambar_url) AS gallery
+            FROM
+            museum
+            INNER JOIN gallery_museum ON museum.id_museum = gallery_museum.id_museum
+            WHERE
             museum.id_museum = ${id}
-      GROUP BY
-        museum.id_museum`;
-    
-        db.query(query, (err, results) => {
+            GROUP BY
+            museum.id_museum`;
+
+        db.query(museumQuery, (err, museumResults) => {
             if (err) {
                 console.log(err);
                 return res.status(500).json({
@@ -54,14 +57,31 @@ module.exports = {
                     error: err.message
                 });
             } else {
-                res.status(200).json({
-                    success: true,
-                    message: 'Berhasil mendapatkan data museum berdasarkan id',
-                    data: results
+                const museumData = museumResults[0]; // Ambil data museum dari hasil query
+
+                // Query untuk mengambil review berdasarkan id museum
+                const reviewQuery = `SELECT * FROM reviews_museum WHERE id_museum = ${id}`;
+
+                db.query(reviewQuery, (err, reviewResults) => {
+                    if (err) {
+                        console.log(err);
+                        return res.status(500).json({
+                            success: false,
+                            message: 'Gagal mendapatkan review museum',
+                            error: err.message
+                        });
+                    } else {
+                        museumData.reviews = reviewResults; // Tambahkan review ke data museum
+                        res.status(200).json({
+                            success: true,
+                            message: 'Berhasil mendapatkan data museum berdasarkan id',
+                            data: museumData
+                        });
+                    }
                 });
             }
         });
-    }, 
+    },
 
     getMuseumBySearch: (req, res) => {
         const q = req.query.q;
@@ -193,8 +213,8 @@ module.exports = {
 
     getMuseumByRating: (req, res) => {
         const rating = req.params.rating;
-        const query = `SELECT * FROM museum WHERE rating = ${rating}`;
-        db.query(query, (err, results) => {
+        const query = 'SELECT * FROM museum WHERE rating = ?';
+        db.query(query, [rating], (err, results) => {
             if (err) {
                 console.log(err);
                 return res.status(500).json({
@@ -236,6 +256,41 @@ module.exports = {
                     success: true,
                     message: 'Berhasil mendapatkan data provinsi',
                     data: responseObj
+                });
+            }
+        });
+    }, 
+
+    addReview: (req, res) => {
+        const id = req.params.id;
+        const reviewData = {
+            ...req.body,
+            id: uuidv4(),
+            id_museum: id,
+            created_at: new Date().toISOString(),
+        }
+    
+        if(!id || !reviewData.nama || !reviewData.review) {
+            return res.status(400).json({
+                success: false,
+                message: 'Data tidak valid. Pastikan data diisi dengan benar.',
+                error: 'Data tidak valid'
+            });
+        }
+    
+        const query = 'INSERT INTO reviews_museum SET ?';
+        db.query(query, reviewData, (err, results) => {
+            if(err) {
+                return res.status(500).json({
+                    success: false,
+                    message: 'Gagal menambahkan review',
+                    error: err.message
+                });
+            } else {
+                return res.status(201).json({
+                    success: true,
+                    message: 'Berhasil menambahkan review',
+                    data: reviewData
                 });
             }
         });
