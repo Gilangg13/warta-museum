@@ -73,9 +73,9 @@ module.exports = {
             });
         }
 
-        const query = `SELECT * FROM museum WHERE nama LIKE ? OR kota_kabupaten LIKE ? OR provinsi LIKE ? OR kategori LIKE ?`;
+        const query = `SELECT * FROM museum WHERE nama LIKE ? OR kota_kabupaten LIKE ? OR provinsi LIKE ? OR kategori LIKE ? OR rating LIKE ?`;
         const searchTerm = `%${q}%`;
-        db.query(query, [searchTerm, searchTerm, searchTerm, searchTerm], (err, results) => {
+        db.query(query, [searchTerm, searchTerm, searchTerm, searchTerm,], (err, results) => {
             if (err) {
                 console.log(err);
                 return res.status(500).json({
