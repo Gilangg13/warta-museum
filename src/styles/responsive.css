@@ -10,6 +10,10 @@
     grid-auto-columns: calc(calc(100% / 3) - 20px);
     grid-column-gap: 30px;
   }
+
+  .carousel button {
+    margin: 0 60px;
+  }
 }
 
 @media (min-width: 1100px) {
@@ -211,13 +215,13 @@
     max-width: 680px;
   }
 
-  .hero-banner img {
+  /* .hero-banner img {
     width: 550px;
     margin: 0 auto;
     align-items: center;
     display: flex;
     justify-content: center;
-  }
+  } */
 
   .hero-banner h1 {
     font-size: 25px;
@@ -301,6 +305,10 @@
   .hero-banner {
     background-position: 40px 15px;
   }
+
+  /* .hero-banner img {
+    width: 350px;
+  } */
 }
 
 @media (max-width: 330px) {

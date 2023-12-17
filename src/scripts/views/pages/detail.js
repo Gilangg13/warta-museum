@@ -41,15 +41,15 @@ const DetailMuseum = {
 
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
-    console.log("Parsed URL:", url);
+    // console.log("Parsed URL:", url);
     const museumId = url.id;
 
-    console.log("Museum ID from URL:", museumId);
+    // console.log("Museum ID from URL:", museumId);
 
     if (museumId) {
       const museum = await MuseumSource.detailMuseum(museumId);
 
-      console.log("Museum data:", museum);
+      // console.log("Museum data:", museum);
 
       const museumImage = document.querySelector(".museum-detail-image");
       museumImage.innerHTML = createMuseumDetailImage(museum);

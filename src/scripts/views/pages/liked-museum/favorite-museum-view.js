@@ -44,7 +44,7 @@ class FavoriteMuseumView {
   _getEmptyMuseumsTemplate() {
     return `
         <div class="museum-item__not__found text-center">
-            Tidak ada museum untuk ditampilkan
+            Tidak ada museum Favorite
         </div>
     `;
   }

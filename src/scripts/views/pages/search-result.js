@@ -2,8 +2,9 @@
 import UrlParser from "../../routes/url-parser";
 import MuseumResource from "../../data/museum-resource";
 import {
-  createMuseumItemFavoriteTemplate,
+  // createMuseumItemFavoriteTemplate,
   createEmptyMuseumTemplate,
+  createCategoryTemplate,
 } from "../templates/template-creator";
 
 const SearchResult = {
@@ -31,8 +32,19 @@ const SearchResult = {
       const museums = await MuseumResource.searchMuseum(query);
       if (museums) {
         museums.forEach((museum) => {
-          searchResultContainer.innerHTML +=
-            createMuseumItemFavoriteTemplate(museum);
+          // searchResultContainer.innerHTML += createCategoryTemplate(museum);
+          const museumItem = document.createElement("li");
+          museumItem.classList.add("museum-item-category");
+          museumItem.innerHTML = createCategoryTemplate(museum);
+          searchResultContainer.appendChild(museumItem);
+
+          const exploreLink = museumItem.querySelector(".card-link");
+          exploreLink.addEventListener("click", (event) => {
+            event.preventDefault();
+            const museumId = museum.id_museum;
+            console.log(museumId);
+            window.location.hash = `#/detail/${museumId}`;
+          });
         });
       } else {
         searchResultContainer.innerHTML += createEmptyMuseumTemplate();

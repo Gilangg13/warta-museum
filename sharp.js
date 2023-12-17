@@ -23,7 +23,7 @@ fs.readdirSync(target).forEach((image) => {
 
   // mengubah gambar dengan lebar 550px, dengan prefix -medium.png
   sharp(`${target}/${image}`)
-    .resize(550)
+    .resize(500)
     .toFile(
       path.resolve(
         __dirname,
@@ -33,7 +33,7 @@ fs.readdirSync(target).forEach((image) => {
 
   // mengubah gambar dengan lebar 500px, dengan prefix -small.png
   sharp(`${target}/${image}`)
-    .resize(500)
+    .resize(350)
     .toFile(
       path.resolve(
         __dirname,

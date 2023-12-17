@@ -11,6 +11,9 @@ const assetsToCache = [
   "./icons/icon192x192.png",
   "./icons/icon384x384.png",
   "./icons/icon512x512.png",
+  "./images/hero-large.png",
+  "./images/hero-medium.png",
+  "./images/hero-small.png",
   "./index.html",
   "./icon.png",
   "./app.bundle.js",
@@ -19,19 +22,19 @@ const assetsToCache = [
 ];
 
 self.addEventListener("install", (event) => {
-  console.log("Installing Service Worker...");
+  // console.log("Installing Service Worker...");
 
   event.waitUntil(CacheHelper.cachingAppShell([...assetsToCache]));
 });
 
 self.addEventListener("activate", (event) => {
-  console.log("Activating Service Worker...");
+  // console.log("Activating Service Worker...");
 
   event.waitUntil(CacheHelper.deleteOldCache());
 });
 
 self.addEventListener("fetch", (event) => {
-  console.log(event.request);
+  // console.log(event.request);
 
   event.respondWith(CacheHelper.revalidateCache(event.request));
 });

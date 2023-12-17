@@ -117,7 +117,7 @@ const createMuseumItemTemplate = (museum) => `
             </div>
             <div class="card-link-wrapper">
              <h3 class="card-link">
-                    <a href="#/detail/${museum.id}" class="text-decoration-none">Explore</a> 
+                    <a href="#/detail/${museum.id_museum}" class="text-decoration-none">Explore</a> 
                 </h3> 
             </div>
         </div>

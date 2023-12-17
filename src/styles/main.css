@@ -319,7 +319,6 @@ nav form .button-search:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: 44px;
   min-height: 44px;
 }
 
