@@ -1,6 +1,3 @@
-# warta-museum
-Capstone Project SIB Dicoding Batch 5
-
 <div align="center">
   
   <a href="https://freeimage.host/id"><img src="https://iili.io/JubHgdG.png" alt="JubHgdG.png" border="0"></a>
