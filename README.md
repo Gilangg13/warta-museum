@@ -47,7 +47,7 @@ Capstone Project SIB Cycle 5 - Dicoding 2023
   F626YB300 | [Taqiy Rizqi Jagad Samudra](https://github.com/Taq1yRizqi)
 
 ## Run Locally
-
+<div align="left">
 1. Clone the project
     ```bash
       git clone https://github.com/Gilangg13/warta-museum.git
@@ -72,11 +72,7 @@ Capstone Project SIB Cycle 5 - Dicoding 2023
     ```bash
       npm run start-dev
     ```
-
-
-
-  
------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|-----------------------------
+    </div>
   </div>
   
   
