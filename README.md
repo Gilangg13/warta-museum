@@ -48,6 +48,7 @@ Capstone Project SIB Cycle 5 - Dicoding 2023
 
 ## Run Locally
 <div align="left">
+  
 1. Clone the project
     ```bash
       git clone https://github.com/Gilangg13/warta-museum.git
@@ -73,6 +74,6 @@ Capstone Project SIB Cycle 5 - Dicoding 2023
       npm run start-dev
     ```
     </div>
-  </div>
+</div>
   
   
