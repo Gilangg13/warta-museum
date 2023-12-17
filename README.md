@@ -11,7 +11,7 @@ Capstone Project SIB Cycle 5 - Dicoding 2023
   
 ## Features
 
- Interactive | PWA | Favorite | Offline Access | Searching  | Submission Form
+ Interactive | PWA | Favorite | Offline Access | Searching
 
   
 ## Tech
