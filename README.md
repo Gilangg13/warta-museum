@@ -8,5 +8,5 @@ Cara instalasi proyek:
 3. buka folder yang sudah di download di IDE editor favorite kalian
  
 ## Penggunaan
-1. ketikan "npm install" untuk mendownload semua npm pada package.json
-2. jalankan dengan mengetik "npm run start-dev" untuk berjalan di localhost
+1. ketikan ```npm install``` untuk mendownload semua npm pada package.json
+2. jalankan dengan mengetik ```npm run start-dev``` untuk berjalan di localhost
