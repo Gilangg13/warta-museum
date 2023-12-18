@@ -30,8 +30,8 @@ Capstone Project SIB Cycle 5 - Dicoding 2023
   ----------|---------
  [Presentation Video](https://youtu.be/s4BxiYMD1Lg) | [Demo Video](https://youtu.be/TybFl7CRLmA) 
 
-  | Website |
-  [web.wartamuseum.xyz](https://web.wartamuseum.xyz/)
+## WEBSITE
+[web.wartamuseum.xyz](https://web.wartamuseum.xyz/)
 
   
  ### Team ID : `C523-PS080`
