@@ -28,7 +28,7 @@ Capstone Project SIB Cycle 5 - Dicoding 2023
 
   | Presentasi | Demo |
   ----------|---------
- [Presentation Video](https://youtu.be/SAoMJBDLYxs) | [Demo Video](https://youtu.be/QguTzavEbrw) 
+ [Presentation Video](https://youtu.be/s4BxiYMD1Lg) | [Demo Video](https://youtu.be/TybFl7CRLmA) 
 
   
  ### Team ID : `C523-PS080`
