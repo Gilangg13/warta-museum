@@ -1,0 +1,24 @@
+{
+  "icons": [
+    {
+      "src": "auto/icon_512x512.4301d2b08f2123345b5bf68876c48d76.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "auto/icon_192x192.04167721484d7147f17f478afc957d1d.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "name": "Warta Museum",
+  "short_name": "Warta Museum",
+  "orientation": "portrait",
+  "display": "standalone",
+  "start_url": "/",
+  "description": "Portal Informasi Seputar Keajaiban Dunia Seni dan Sejarah",
+  "background_color": "#1e232b",
+  "theme_color": "#fece1f"
+}
